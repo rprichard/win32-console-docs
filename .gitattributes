@@ -1,0 +1,11 @@
+*               text=auto
+*.cc            text
+*.h             text
+*.md            text
+*.xml           text
+.gitignore      text
+.gitattributes  text
+Makefile        text
+configure       text
+
+configure       eol=lf
