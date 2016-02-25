@@ -1,5 +1,4 @@
 include config.mk
-CXX = $(MINGW_CXX)
 
 # Pass -Wno-format to disable format checking because gcc complains about
 # %I64x.  I can't use %lld because it's broken on MinGW-on-WinXP, though it
@@ -80,13 +79,7 @@ build/obj/%.o : %.cc $(PCHDEPS)
 	@mkdir -p $$(dirname $@)
 	@$(CXX) $(PCHFLAGS) $(CXXFLAGS) $(CPPFLAGS) -c -o $@ $<
 
-# build/obj/shared/%.o : ../../src/shared/%.cc $(PCHDEPS)
-# 	@echo Compiling $<
-# 	@mkdir -p $$(dirname $@)
-# 	@$(CXX) $(PCHFLAGS) $(CXXFLAGS) $(CPPFLAGS) -c -o $@ $<
-
 .PRECIOUS : build/obj/%.o
-# .PRECIOUS : build/obj/shared/%.o
 
 build/Worker.exe : $(WORKER_OBJECTS) $(COMMON_OBJECTS)
 	@echo Linking $@

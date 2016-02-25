@@ -6,7 +6,7 @@ work, and how they interact with process creation and console attachment and
 detachment.  It is based on experiments that I ran against various versions of
 Windows from Windows XP to Windows 10.
 
-The information here is verified by the test suite in the `misc/buffer-tests`
+The information here is verified by the test suite in the `src`
 directory.  It should be taken with a grain of salt.  I don't have access
 to many operating systems.  There may be important things I didn't think to
 test.  Some of the behavior is surprising, so it's hard to be sure I have
@@ -191,7 +191,7 @@ they are marked inheritable.  The `PROC_THREAD_ATTRIBUTE_HANDLE_LIST`
 attribute added in Vista does not restrict console handle inheritance, and
 erratic behavior may result from specifying a traditional console handle in
 `PROC_THREAD_ATTRIBUTE_HANDLE_LIST`'s `HANDLE` list.  (See the
-`Test_CreateProcess_STARTUPINFOEX` test in `misc/buffer-tests`.)
+`Test_CreateProcess_STARTUPINFOEX` test in `src`.)
 
 ### AllocConsole, AttachConsole (traditional)
 
@@ -412,7 +412,7 @@ In this situation, Windows XP will set the child process's standard handle to
 `NULL`.  The write end of the pipe works fine.  Passing a `bInheritHandles`
 of `TRUE` (and an inheritable pipe handle) works fine.  Using
 `STARTF_USESTDHANDLES` also works.  See `Test_CreateProcess_Duplicate_XPPipeBug`
-in `misc/buffer-tests` for a test case.
+in `src/HandleTests` for a test case.
 
 ### <a name="xpinh">Windows XP duplication inheritability [xpinh]</a>
 
@@ -502,14 +502,14 @@ console handle via `DetachConsole` or exiting somehow avoids the problem.
 The bug affects Windows 7 SP1, but does not affect
 Windows Server 2008 R2 SP1, the server version of the OS.
 
-See `misc/buffer-tests/HandleTests/Win7_Conout_Crash.cc`.
+See `src/HandleTests/Win7_Conout_Crash.cc`.
 
 Test suite
 ----------
 
-To run the `misc/buffer-tests` test suite, follow the instructions for
-building winpty.  Then, enter the `misc/buffer-tests` directory, run `make`,
-and then run `build/HandleTests.exe`.
+To run the test suite, install Cygwin or MSYS2, and install the MinGW-w64 G++
+compiler package.  Enter the `src` subdirectory.  Run `./configure`, then
+`make`, and finally `build/HandleTests.exe`.
 
 For a WOW64 run:
 
