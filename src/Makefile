@@ -90,7 +90,7 @@ build/HandleTests.exe : $(HANDLETESTS_OBJECTS) $(TEST_OBJECTS) $(COMMON_OBJECTS)
 	@$(CXX) -o $@ $^ $(LDFLAGS)
 
 build/HandleTests.exe.manifest : manifest.xml
-	@Echo Copying $< to $@
+	@echo Copying $< to $@
 	@mkdir -p $$(dirname $@)
 	@cp $< $@
 
