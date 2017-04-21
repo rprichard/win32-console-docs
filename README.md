@@ -72,11 +72,11 @@ combination of `CREATE_NEW_CONSOLE` and `DETACHED_PROCESS` is an error:
 | None of the flags (parent has a console)    | *Inherit*                             |
 | None of the flags (parent has no console)   | *NewConsole*                          |
 | `CREATE_NEW_CONSOLE`                        | *NewConsole*                          |
-| `CREATE_NEW_CONSOLE | CREATE_NO_WINDOW`     | *NewConsole*                          |
+| `CREATE_NEW_CONSOLE` and `CREATE_NO_WINDOW` | *NewConsole*                          |
 | `CREATE_NO_WINDOW`                          | *NewConsoleNoWindow*                  |
 | `DETACHED_PROCESS`                          | *Detach*                              |
-| `DETACHED_PROCESS | CREATE_NO_WINDOW`       | *Detach*                              |
-| `CREATE_NEW_CONSOLE | DETACHED_PROCESS`     | none - the `CreateProcess` call fails |
+| `DETACHED_PROCESS` and `CREATE_NO_WINDOW`   | *Detach*                              |
+| `CREATE_NEW_CONSOLE` and `DETACHED_PROCESS` | none - the `CreateProcess` call fails |
 | All three flags                             | none - the `CreateProcess` call fails |
 
 Windows' behavior depends on the *CreationConsoleMode*:
