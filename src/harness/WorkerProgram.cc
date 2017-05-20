@@ -329,6 +329,11 @@ int main(int argc, char *argv[]) {
             case Command::SetActiveBuffer:
                 setConsoleActiveScreenBuffer(cmd.handle);
                 break;
+            case Command::SetScreenBufferSize:
+                cmd.success =
+                    SetConsoleScreenBufferSize(cmd.handle,
+                                               cmd.u.screenBufferSize);
+                break;
             case Command::SpawnChild:
                 trace("Spawning child...");
                 cmd.handle = spawn(cmd.u.spawn.spawnName.str(),

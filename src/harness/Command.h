@@ -36,6 +36,7 @@ struct Command {
         ScanForConsoleHandles,
         SetConsoleTitle,
         SetHandleInformation,
+        SetScreenBufferSize,
         SetStdin,
         SetStderr,
         SetStdout,
@@ -90,5 +91,6 @@ struct Command {
             COORD bufferCoord;
             SMALL_RECT ioRegion;
         } consoleIo;
+        COORD screenBufferSize;
     } u;
 };

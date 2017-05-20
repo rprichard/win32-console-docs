@@ -177,6 +177,13 @@ bool RemoteHandle::tryNumberOfConsoleInputEvents(DWORD *ret) {
     return worker().cmd().success;
 }
 
+bool RemoteHandle::trySetScreenBufferSize(COORD size) {
+    worker().cmd().handle = m_value;
+    worker().cmd().u.screenBufferSize = size;
+    worker().rpc(Command::SetScreenBufferSize);
+    return worker().cmd().success;
+}
+
 std::vector<RemoteHandle> inheritableHandles(
         const std::vector<RemoteHandle> &vec) {
     std::vector<RemoteHandle> ret;

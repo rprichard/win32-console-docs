@@ -63,6 +63,7 @@ public:
     wchar_t firstChar();
     RemoteHandle &setFirstChar(wchar_t ch);
     bool tryNumberOfConsoleInputEvents(DWORD *ret=nullptr);
+    bool trySetScreenBufferSize(COORD size);
     HANDLE value() const { return m_value; }
     uint64_t uvalue() const { return reinterpret_cast<uint64_t>(m_value); }
     bool isTraditionalConsole() const { return (uvalue() & 3) == 3; }
