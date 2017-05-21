@@ -143,7 +143,6 @@ static void Test_Implicit_Buffer_Reference() {
     };
     {
         Worker p;
-        Worker p2({ false, DETACHED_PROCESS });
         p.getStdout().setFirstChar('A');
         auto b = p.newBuffer(false, 'B').activate();
         auto pipe = newPipe(p, true);
@@ -164,7 +163,7 @@ static void Test_Implicit_Buffer_Reference() {
         CHECK_EQ(c.scanForConsoleHandles().size(), 0u);
 
         // Now close the only open handle to the B buffer.  The active
-        // buffer remains A, because the child implicitly references B.
+        // buffer remains B, because the child implicitly references B.
         b.close();
         CHECK_EQ(activeFirstChar(p), 'B');
         c.detach();
