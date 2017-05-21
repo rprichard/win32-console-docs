@@ -191,7 +191,7 @@ they are marked inheritable.  The `PROC_THREAD_ATTRIBUTE_HANDLE_LIST`
 attribute added in Vista does not restrict console handle inheritance, and
 erratic behavior may result from specifying a traditional console handle in
 `PROC_THREAD_ATTRIBUTE_HANDLE_LIST`'s `HANDLE` list.  (See the
-`Test_CreateProcess_STARTUPINFOEX` test in `src`.)
+`Test_CreateProcess_InheritList` test in `src`.)
 
 ### AllocConsole, AttachConsole (traditional)
 
