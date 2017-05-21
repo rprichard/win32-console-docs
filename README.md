@@ -216,16 +216,16 @@ Modern semantics
 ### Console handles (modern)
 
 Starting with Windows 8, console handles are true NT kernel handles that
-reference NT kernel objects.
+reference NT kernel objects.  Console handles are associated with a device path
+beginning with`\Device\ConDrv\`.  View the full path using `procexp.exe` or
+`handle.exe` from sysinternals (e.g. `handle.exe -a -p <pid>`).  Be sure to run
+the tool elevated, or you will only see the `\Device\ConDrv` for each handle.
 
-If a process is attached to a console, then it will have two handles open
-to `\Device\ConDrv` that Windows uses internally.  These handles are never
-observable by the user program.  (To view them, use `handle.exe` from
-sysinternals, i.e. `handle.exe -a -p <pid>`.)  A process with no attached
-console never has these two handles open.
+If a process is attached to a console, then it will have two open console
+handles that Windows uses internally -- one to `\Device\ConDrv\Connect` and
+another to `\Device\ConDrv\Reference`.
 
-Ordinary I/O console handles are also associated with `\Device\ConDrv`.  The
-underlying console objects can be classified in two ways:
+Ordinary I/O console objects can be classified in two ways:
 
  - *Input* vs *Output*
  - *Bound* vs *Unbound*
@@ -235,8 +235,9 @@ A *Bound* *Input* object is tied to a particular console, and a *Bound*
 objects are usable only if the process is attached to the correct
 console.  *Bound* objects are created through these methods only:
 
- - `CreateConsoleScreenBuffer`
- - opening `CONIN$` or `CONOUT$`
+ - `CreateConsoleScreenBuffer` (associated with `\Device\ConDrv\ScreenBuffer`)
+ - opening `CONIN$` or `CONOUT$` (associated with `\Device\ConDrv\CurrentIn`
+   and `\Device\ConDrv\CurrentOut`)
 
 Most console objects are *Unbound*, which are created during console
 initialization.  For any given console API call, an *Unbound* *Input* object
@@ -244,6 +245,9 @@ refers to the currently attached console's input queue, and an *Unbound*
 *Output* object refers to the screen buffer that was active during the calling
 process' console initialization.  These objects are usable as long as the
 calling process has any console attached.
+
+*Unbound* objects are associated with `\Device\ConDrv\Input` and
+`\Device\ConDrv\Output`.
 
 Unlike traditional console handles, modern console handles **can** be
 duplicated to other processes.
