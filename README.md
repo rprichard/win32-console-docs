@@ -277,8 +277,8 @@ Each of the child's standard handles is set using the first match:
     same *Unbound* output object if it creates handles for both `STDOUT` and
     `STDERR`.  The handles themselves are still different, though.)
 
- 3. If *ConsoleCreationMode* is *Detach*, then Windows sets the handles to
-    (`NULL`, `NULL`, `NULL`).
+ 3. If *ConsoleCreationMode* is *Detach*, then Windows sets the handle to
+    `NULL`.
 
  4. If *UseStdHandles*, the child's standard handle becomes `NULL`.
 
@@ -501,7 +501,7 @@ garbage and/or crash `conhost.exe`.  Closing a dangling handle is especially
 likely to trigger a crash.
 
 Rather than using `CloseHandle`, letting Windows automatically clean up a
-console handle via `DetachConsole` or exiting somehow avoids the problem.
+console handle via `FreeConsole` or exiting somehow avoids the problem.
 
 The bug affects Windows 7 SP1, but does not affect
 Windows Server 2008 R2 SP1, the server version of the OS.
