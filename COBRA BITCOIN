@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-16" ?>
+<RelMonReport TimeGenerated="2023-05-10T12:44:57.962">
+	<GraphData>
+	</GraphData>
+	<Events>
+		<RacEvents>
+		</RacEvents>
+		<WerEvents>			<Event>
+				<Time>2023-05-10T00:15:56.442</Time>
+				<Impact>Critical</Impact>
+				<Source>Windows</Source>
+				<Problem>Shut down unexpectedly</Problem>
+				<State>Not reported</State>
+			</Event>
+			<Event>
+				<Time>2023-05-10T01:31:39.223</Time>
+				<Impact>Critical</Impact>
+				<Source>Settings</Source>
+				<Problem>Stopped working</Problem>
+				<State>Report sent</State>
+			</Event>
+			<Event>
+				<Time>2023-05-09T22:50:16.661</Time>
+				<Impact>Critical</Impact>
+				<Source>Windows Update</Source>
+				<Problem>Stopped working</Problem>
+				<State>Report sent</State>
+			</Event>
+			<Event>
+				<Time>2023-05-10T02:11:44.581</Time>
+				<Impact>Critical</Impact>
+				<Source>Security Center</Source>
+				<Problem>Stopped working</Problem>
+				<State>Report sent</State>
+			</Event>
+			<Event>
+				<Time>2023-05-10T02:18:53.530</Time>
+				<Impact>Critical</Impact>
+				<Source>Security Center</Source>
+				<Problem>Stopped working</Problem>
+				<State>Report sent</State>
+			</Event>
+			<Event>
+				<Time>2023-05-10T02:14:51.278</Time>
+				<Impact>Critical</Impact>
+				<Source>System Settings Broker</Source>
+				<Problem>Stopped working</Problem>
+				<State>Report sent</State>
+			</Event>
+			<Event>
+				<Time>2023-05-10T03:05:00.381</Time>
+				<Impact>Critical</Impact>
+				<Source>Security Center</Source>
+				<Problem>Stopped working</Problem>
+				<State>Report sent</State>
+			</Event>
+			<Event>
+				<Time>2023-05-10T02:13:50.239</Time>
+				<Impact>Critical</Impact>
+				<Source>Security Center</Source>
+				<Problem>Stopped working</Problem>
+				<State>Report sent</State>
+			</Event>
+			<Event>
+				<Time>2023-05-10T02:15:05.887</Time>
+				<Impact>Critical</Impact>
+				<Source>Settings</Source>
+				<Problem>Stopped working</Problem>
+				<State>Report sent</State>
+			</Event>
+			<Event>
+				<Time>2023-05-10T03:07:05.969</Time>
+				<Impact>Critical</Impact>
+				<Source>Security Center</Source>
+				<Problem>Stopped working</Problem>
+				<State>Report sent</State>
+			</Event>
+			<Event>
+				<Time>2023-05-10T03:12:09.103</Time>
+				<Impact>Critical</Impact>
+				<Source>Security Center</Source>
+				<Problem>Stopped working</Problem>
+				<State>Report sent</State>
+			</Event>
+			<Event>
+				<Time>2023-05-10T12:44:32.221</Time>
+				<Impact>Critical</Impact>
+				<Source>Security Center</Source>
+				<Problem>Stopped working</Problem>
+				<State>Report sent</State>
+			</Event>
+			<Event>
+				<Time>2023-05-10T12:44:46.111</Time>
+				<Impact>Critical</Impact>
+				<Source>System Settings Broker</Source>
+				<Problem>Stopped working</Problem>
+				<State>Report sent</State>
+			</Event>
+		</WerEvents>
+	</Events>
+</RelMonReport>
